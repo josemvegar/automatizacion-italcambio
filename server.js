@@ -4,12 +4,12 @@ import { runAppointment } from "./run.js";
 const app = express();
 app.use(express.json());
 
-app.post("/reserve", async (req, res) => {
+app.get("/reserve", async (req, res) => {
     res.status(200).json({ 
         ok: true,
         version: "1.0.0"
      });
-}
+});
 
 app.post("/reserve", async (req, res) => {
   try {
