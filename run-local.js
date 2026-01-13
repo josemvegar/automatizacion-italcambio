@@ -2,7 +2,6 @@ import { chromium } from "playwright";
 import { appointmentFlow } from "./flows/appointmentFlow.js";
 import { parseCookieHeader } from "./core/cookies.js";
 import { log } from "./core/logger.js";
-//require('dotenv').config();
 import "dotenv/config";
 
 (async () => {
@@ -14,10 +13,6 @@ import "dotenv/config";
             "--disable-blink-features=AutomationControlled"
         ]
     });
-
-    /*const context = await browser.newContext({
-        storageState: "sessions/italcambio-session.json"
-    });*/
 
     const context = await browser.newContext();
 
@@ -55,7 +50,5 @@ import "dotenv/config";
     });
 
     await appointmentFlow(page);
-
-    await context.storageState({ path: "sessions/italcambio-session.json" });
     await browser.close();
 })();

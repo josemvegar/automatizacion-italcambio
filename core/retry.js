@@ -40,18 +40,11 @@ export async function handleRetry(page, currentState, status) {
             throw new Error("No se encontraron suficientes botones del menú lateral");
         }
 
-        // 🔎 DEBUG VISUAL
-        //await page.pause();
-
         // Navegación intermedia
         await menuItems.nth(1).click({ force: true });
 
-        //await page.pause();
-
         // Volver a Estados
         await menuItems.nth(0).click({ force: true });
-
-        //await page.pause();
 
         return "VSTATE";
     }
@@ -72,17 +65,6 @@ export async function handleRetry(page, currentState, status) {
     log("Retroceso normal → botón Atrás");
 
     await page.click(BACK_BUTTON_SELECTOR, { force: true });
-
-    /*if (currentState !== "SUC") {
-        const response = await page.waitForResponse(res =>
-            res.url().includes("appointmentAPI")
-        );
-
-        if (response.status() !== 200) {
-            log(`Retroceso falló (${response.status()}) → seguir retrocediendo`);
-            return getPreviousState(currentState);
-        }
-    }*/
 
     // ✅ RETROCESO EXITOSO
     page.__RETRY_COUNT = 0;

@@ -8,7 +8,6 @@ export function parseCookieHeader(cookieHeader, domain) {
       path: "/",
       httpOnly: false,
       secure: false,
-      //sameSite: ""
     };
   });
 }

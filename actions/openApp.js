@@ -11,7 +11,6 @@ export async function openApp(page) {
   if (!root) {
     throw new Error("La aplicación no cargó");
   }
-
-  //page.waitForTimeout(CONFIG.WAIT.SHORT);
+  
   log("Aplicación cargada correctamente");
 }

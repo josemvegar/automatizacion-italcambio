@@ -12,12 +12,9 @@ export async function selectState(page) {
   if (response.status() !== 200) {
     throw new Error(`statelocation.php devolvió ${response.status()}`);
   }
-
-  //await page.pause();
+  
   await page.waitForTimeout(CONFIG.WAIT.SHORT);
   await page.locator("button.MuiButtonBase-root.MuiCardActionArea-root").nth(9).click();
-
-  page.__IS_ROLLBACK = false; // 👈 RESET
 
   log("Estado seleccionado OK");
 }

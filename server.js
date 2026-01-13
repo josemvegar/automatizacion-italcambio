@@ -13,6 +13,6 @@ app.post("/reserve", async (req, res) => {
   }
 });
 
-app.listen(3000, () => {
-  console.log("Bot listening on port 3000");
+app.listen(8000, "0.0.0.0", () => {
+  console.log("Bot listening on port 8000");
 });
