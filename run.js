@@ -51,6 +51,9 @@ export async function runAppointment() {
         }
     });
 
-    await appointmentFlow(page);
-    await browser.close();
+    try {
+        await appointmentFlow(page);
+    } finally {
+        await context.close(); // ✅ SOLO el contexto
+    }
 };
