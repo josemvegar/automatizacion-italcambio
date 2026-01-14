@@ -7,10 +7,12 @@ import "dotenv/config";
 export async function runAppointment() {
     const browser = await chromium.launch({
         headless: true,
-        //headless: false,
-        //slowMo: 50, // opcional, recomendado
         args: [
-            "--disable-blink-features=AutomationControlled"
+            "--disable-blink-features=AutomationControlled",
+            "--no-sandbox",                                   // Crítico para Docker
+            "--disable-setuid-sandbox",                      // Crítico para Docker
+            "--disable-dev-shm-usage",                       // Usa /tmp en lugar de /dev/shm (evita crashes por falta de memoria)
+            "--single-process"                               // Opcional: ayuda si la RAM es muy limitada
         ]
     });
 
