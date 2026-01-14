@@ -7,7 +7,7 @@ app.use(express.json());
 app.get("/reserve", async (req, res) => {
     res.status(200).json({ 
         ok: true,
-        version: "1.0.0"
+        version: "1.0.1"
      });
 });
 
