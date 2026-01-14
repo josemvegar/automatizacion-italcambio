@@ -57,6 +57,7 @@ export async function runAppointment() {
         await appointmentFlow(page);
     } catch (err) {
         log(`Error en ejecución: ${err.message}`);
+        throw err;
     } finally {
         // Cerramos el navegador siempre, falle o no, para liberar los 256MB 
         await browser.close();
