@@ -1,7 +1,7 @@
 export const CONFIG = {
   BASE_URL: "https://www.italcambio.com/appointment/application",
   WAIT: {
-    SHORT: 500,
+    SHORT: 350,
     MEDIUM: 5000,
     LONG: 20000
   },
